@@ -1,0 +1,61 @@
+
+body {
+    background-color: #ffffff;
+}
+
+#form {
+    background-color: #ffffff;
+    margin: auto;
+    font-family: Raleway;
+    min-width: 300px;
+	height: 100%;
+    position: relative;
+}
+
+label, select {
+    margin: 20px 20px 20px 0;
+    width: 200px;
+    font-size: 20px;
+    font-family: Raleway;
+}
+
+ul {
+    list-style: none;
+}
+
+button {
+    background-color: #85C1F8;
+    color: #ffffff;
+    border: none;
+    min-width: 180px;
+    padding: 10px 20px;
+    font-size: 20px;
+    font-family: Raleway;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.red {
+    background-color: #FCDDEC;
+    color: #8D8B8B;
+}
+
+.mode {
+    min-width: 240px;
+    min-height: 50px;
+    margin-top: 30px;
+}
+
+/* Hide all steps by default: */
+.tab {
+    display: none;
+}
+
+.evenBtns {
+    display: none;
+    justify-content: space-around;
+}

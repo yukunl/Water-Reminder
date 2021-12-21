@@ -1,0 +1,66 @@
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="style.css">
+
+  <script type="text/javascript" src="controller.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.js"></script>
+  <script type="text/javascript" src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+  <script type="text/javascript" src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+</head>
+
+<body>
+
+<form id="form" action="/action_page.php">
+  <!-- Tab 1: select device -->
+  <div class="tab" style="padding-top: 15%; text-align: center">
+    <h1>Welcome to Sensor Data Demo!</h1><br>
+    <h2>Have your sensor ready?</h2><br>
+    <button type="button" id="selectDevice" onclick="select_sensor()">Select Device</button>
+  </div>
+  <!-- Tab 2: select sample rate -->
+  <div class="tab" style="padding-top: 15%; text-align: center">
+    <ul>
+      <li>
+        <label for="sampleRate" id="rateLabel">Sample Rate:</label>
+        <select id="sampleRate">
+          <option value="13" selected>13 Hz</option>
+          <option value="26">26 Hz</option>
+        </select>
+      </li>
+      <li><button type="button" class="mode" id="subdata" onclick="subscribe_data()">Start</button></li>
+      <li><button type="button" class="red mode" id="disconnect" onclick="disconnect_sensor()">Quit</button></li>
+    </ul>
+  </div>
+  <!-- Tab 3: show sensor data -->
+  <div class="tab">
+    <div class="html-content">
+      <div id="graph" style="text-align: center; height: 80%; width = 100%"></div>
+
+      <label for="note" id="noteLabel">Note:</label>
+      <div id="note" contenteditable="true">
+          You may edit the note here ...
+      </div>
+    </div>
+
+    <div style="text-align: center">
+      <button type="button" id="unsubdata" onclick="unsubscribe_data()">End</button>
+    </div>
+    <div class="evenBtns" style="margin-top: 20px">
+      <button type="button" id="getpdf" onclick="download_pdf()">Download PDF</button>
+      <button type="button" id="getcsv" onclick="download_raw()">Save Raw Data</button>
+      <button type="button" id="restart" onclick="new_session()">Restart</button>
+      <button type="button" class="red" id="disconnect" onclick="disconnect_sensor()">Quit</button>
+    </div>
+  </div>
+</form>
+
+<script>
+  var currentTab = 0; // Current tab is set to be the first tab (0)
+  showTab(currentTab); // Display the current tab
+</script>
+
+</body>
+</html>
